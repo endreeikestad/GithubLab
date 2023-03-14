@@ -41,6 +41,12 @@ jobs:
       - name: list files
         run: ls -R
         
+      - name: vis funfacts
+        run: echo ${{vars.funfact}}
+        
+      - name: vis secret
+        run: echo  ${{secrets.MY_SECRET}}
+        
       - name: test
         working-directory: ./TestGithubActions
         run: dotnet test
