@@ -8,7 +8,7 @@ namespace TestGithubActions
     {
         public int Sqr(int a)
         {
-            return 4;
+            return a*a;
         }
     }
 }
