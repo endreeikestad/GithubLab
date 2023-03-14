@@ -38,9 +38,32 @@ jobs:
         working-directory: ./TestGithubActions
         run: dotnet build
         
-      - name: Run a multi-line script. EE 2
+      - name: list files
+        run: ls -R
+        
+      - name: test
         working-directory: ./TestGithubActions
         run: dotnet test
+        
+  runprogram:
+   runs-on: ubuntu-latest
+   
+   steps:
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v3.0.3
+        with: 
+          dotnet-version: 3.1
+      - name: download a Build Artifact
+        uses: actions/download-artifact@v3.1.2
+        with:
+          name: test
+          path: ./program
+          
+      - name: list files 2
+        run: ls -R
+        
+      - name: kjør program
+        run: dotnet run ./program/TestGithubActions.dll
         
       # Runs a set of commands using the runners shell
       #- name: Run a multi-line script
